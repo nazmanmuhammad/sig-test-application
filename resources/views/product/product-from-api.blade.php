@@ -6,6 +6,7 @@
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h3>Products</h3>
                 <p class="text-subtitle text-muted">Display all product data from api (select min 2 filter)</p>
+                <p class="text-subtitle text-muted">Discount Pop-up double click row</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
