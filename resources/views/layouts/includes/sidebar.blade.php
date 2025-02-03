@@ -26,8 +26,8 @@
                         <i class="mdi mdi-database"></i>
                         <span>Master Data</span>
                     </a>
-                    <ul class="submenu  {{ Request::is('product') ? 'active' : '' }}">
-                        <li class="submenu-item ">
+                    <ul class="submenu">
+                        <li class="submenu-item {{ Request::is('product') ? 'active' : '' }}">
                             <a href="{{ route('product') }}">Product from API</a>
                         </li>
                         <li class="submenu-item  {{ Request::is(patterns: 'product-from-db') ? 'active' : '' }}">
