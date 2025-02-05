@@ -60,8 +60,8 @@
                         <div class="col-md-3">
                             <select name="discount" class="form-select" onchange="this.form.submit()">
                                 <option value="">Select Discount</option>
-                                <option value="1" {{ request('attachment') == '1' ? 'selected' : '' }}>Discount</option>
-                                <option value="0" {{ request('attachment') == '0' ? 'selected' : '' }}>Not Discount</option>
+                                <option value="1" {{ request('discount') == '1' ? 'selected' : '' }}>Discount</option>
+                                <option value="0" {{ request('discount') == '0' ? 'selected' : '' }}>Not Discount</option>
                             </select>
                         </div>
                     </div>
