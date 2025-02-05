@@ -27,12 +27,12 @@ class ProductController extends Controller
             $products = $products->filter(fn($product) => intval($product->status) === $status);
         }
 
-        // if ($request->has('type') && $request->input('type') !== '') {
-        //     $type = (int) $request->input('type');
-        //     $products = $products->filter(function($product) use ($type) {
-        //         return $product->type == $type;
-        //     });
-        // }
+        if ($request->has('type') && $request->input('type') !== '') {
+            $type = (int) $request->input('type');
+            $products = $products->filter(function($product) use ($type) {
+                return $product->type == $type;
+            });
+        }
         
         if ($request->has('attachment') && $request->input('attachment') !== '') {
             $attachment = (int) $request->input('attachment');
