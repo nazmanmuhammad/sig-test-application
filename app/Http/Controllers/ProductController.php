@@ -19,26 +19,20 @@ class ProductController extends Controller
         
         $data = $response->json();
 
-        $products = collect($data['results'])->map(fn($item) => (object) $item);
+        $products = collect($data['results'] ?? [])->map(fn($item) => (object) $item);
 
-        if ($request->has('status') && $request->input('status') == '1') {
-            $products = $products->filter(function($product) {
-                return $product->status == 1;
-            });
+        // Filter berdasarkan status
+        if ($request->has('status')) {
+            $status = intval($request->input('status'));
+            $products = $products->filter(fn($product) => intval($product->status) === $status);
         }
-        
-        if ($request->has('status') && $request->input('status') == '0') {
-            $products = $products->filter(function($product) {
-                return $product->status == 0;
-            });
-        }
-        
-        if ($request->has('type') && $request->input('type') !== '') {
-            $type = (int) $request->input('type');
-            $products = $products->filter(function($product) use ($type) {
-                return $product->type == $type;
-            });
-        }
+
+        // if ($request->has('type') && $request->input('type') !== '') {
+        //     $type = (int) $request->input('type');
+        //     $products = $products->filter(function($product) use ($type) {
+        //         return $product->type == $type;
+        //     });
+        // }
         
         if ($request->has('attachment') && $request->input('attachment') !== '') {
             $attachment = (int) $request->input('attachment');
