@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('product.product-from-api');
+    return view('layouts.master');
 });
 
 Route::get('test', function() {
